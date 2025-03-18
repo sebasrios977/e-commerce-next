@@ -17,7 +17,7 @@ export const ProductGridItem = ({product}: Props) => {
   return (
     <div className="rounded-md overflow-hidden fade-in">
         <Link
-            href={`/products/${product.slug}`}
+            href={`/product/${product.slug}`}
         >
             <Image
                 onMouseEnter={() => setDisplayImage(product.images[1])}
@@ -32,7 +32,7 @@ export const ProductGridItem = ({product}: Props) => {
 
         <div className="p-4 flex flex-col">
             <Link
-                href={`/products/${product.slug}`}
+                href={`/product/${product.slug}`}
                 className="hover:underline"
             >
                 {product.title}

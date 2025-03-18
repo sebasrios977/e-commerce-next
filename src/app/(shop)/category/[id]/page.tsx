@@ -1,22 +1,38 @@
+import { ProductGrid, Title } from "@/components";
+import { ValidGender } from "@/interfaces";
+import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
 
 interface Props {
   params: {
-    id: string;
+    id: ValidGender;
 
   }
 }
 
-export default function({ params }: Props) {
+export default async function({ params }: Props) {
 
-  const { id } = params;
+  const { id } = await params;
 
-  if ( id === 'kids' ) {
+  
+  if ( id !== 'men' && id !== 'women' && id !== 'kid' && id !== 'unisex') {
     notFound();
   }
+
+  const labels: Record<ValidGender, string> = {
+    men: 'Artículo de Hombres',
+    women: 'Artículo de Mujeres',
+    kid: 'Artículo de Niños',
+    unisex: 'Artículo para Todos',
+  }
+
+  const products = initialData.products.filter(product => product.gender === id);
+
   return (
-    <div>
-      <h1>Category Page { id }</h1>
-    </div>
+    <>
+      <Title title={labels[id]} subtitle="Todos los productos" />
+
+      <ProductGrid products={products} />
+    </>
   );
 }

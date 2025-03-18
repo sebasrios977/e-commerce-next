@@ -40,7 +40,7 @@ export const Sidebar = () => {
         >
             <IoCloseOutline 
                 size={50} 
-                className="absolute top-5 right-5 cursor-pointer"
+                className="absolute top-5 right-5 cursor-pointer hover:scale-110 transition-all"
                 onClick={closeSideMenu}
             />
 
