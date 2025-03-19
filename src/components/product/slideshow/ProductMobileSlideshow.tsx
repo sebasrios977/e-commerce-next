@@ -31,6 +31,7 @@ export const ProductMobileSlideshow = ({images, title, className}: Props) => {
                 images.map((image, index) => (
                     <SwiperSlide key={index}>
                         <Image 
+                            priority
                             src={`/products/${image}`} 
                             alt={title} 
                             width={600} 

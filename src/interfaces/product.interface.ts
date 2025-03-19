@@ -1,6 +1,6 @@
 export interface Product {
-    //TODO: id: string;
-    description: string;
+    id?: string;
+    description: string | null;
     images: string[];
     inStock: number;
     price: number;

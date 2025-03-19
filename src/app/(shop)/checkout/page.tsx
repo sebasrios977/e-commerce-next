@@ -1,4 +1,4 @@
-import { QuantitySelector, Title } from "@/components";
+import { Title } from "@/components";
 import { initialData } from "@/seed/seed";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,7 +9,7 @@ const productsInCart = [
   initialData.products[2],
 ];
 
-export default function () {
+export default function CheckoutPage() {
   return (
     <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
       <div className="flex flex-col w-[1000px]">
@@ -27,6 +27,7 @@ export default function () {
             {productsInCart.map((product) => (
               <div key={product.slug} className="flex mb-5">
                 <Image
+                  priority
                   src={`/products/${product.images[0]}`}
                   alt={product.title}
                   width={100}
@@ -79,7 +80,7 @@ export default function () {
             <div className="mt-5 mb-2 w-full">
               {/* Disclaimer */}
               <p className="text-sm mb-5">
-                Al hacer clic en "Colocar orden", aceptas nuestros términos y condiciones.
+                Al hacer clic en `&quot;`Colocar orden`&quot;`, aceptas nuestros términos y condiciones.
               </p>
 
               <Link 

@@ -1,6 +1,5 @@
 import { Title } from "@/components";
 import { initialData } from "@/seed/seed";
-import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 import { IoCardOutline } from "react-icons/io5";
@@ -12,12 +11,12 @@ const productsInCart = [
 ];
 
 interface Props {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-export default async function ({ params }: Props) {
+export default async function IdPage({ params }: Props) {
   const { id } = await params;
 
   // Todo: verificar si el id corresponde al usuario, o es un admin. Si no, sacar a la persona
@@ -48,6 +47,7 @@ export default async function ({ params }: Props) {
             {productsInCart.map((product) => (
               <div key={product.slug} className="flex mb-5">
                 <Image
+                  priority
                   src={`/products/${product.images[0]}`}
                   alt={product.title}
                   width={100}

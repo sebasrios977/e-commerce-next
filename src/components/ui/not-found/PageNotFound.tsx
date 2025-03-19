@@ -23,6 +23,7 @@ export const PageNotFound = () => {
 
         <div className="px-5 mx-5">
             <Image 
+                priority
                 src='/imgs/starman_750x750.png'
                 alt='Starman'
                 className="p-5 sm:p-0"

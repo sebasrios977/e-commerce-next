@@ -10,7 +10,7 @@ const productsInCart = [
   initialData.products[2],
 ];
 
-export default function () {
+export default function CartPage() {
 
   if (productsInCart.length === 0) {
     redirect('/empty');
@@ -33,6 +33,7 @@ export default function () {
             {productsInCart.map((product) => (
               <div key={product.slug} className="flex mb-5">
                 <Image
+                  priority
                   src={`/products/${product.images[0]}`}
                   alt={product.title}
                   width={100}

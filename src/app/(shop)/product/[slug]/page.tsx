@@ -4,13 +4,13 @@ import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  }
+  }>
 }
 
 
-export default async function ({params}: Props) {
+export default async function SlugPage({params}: Props) {
   const { slug } = await params;
   const product = initialData.products.find((product) => product.slug === slug);
 

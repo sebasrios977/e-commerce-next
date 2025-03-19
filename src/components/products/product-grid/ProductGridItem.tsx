@@ -20,6 +20,7 @@ export const ProductGridItem = ({product}: Props) => {
             href={`/product/${product.slug}`}
         >
             <Image
+                priority
                 onMouseEnter={() => setDisplayImage(product.images[1])}
                 onMouseLeave={() => setDisplayImage(product.images[0])}
                 src={`/products/${displayImage}`}
