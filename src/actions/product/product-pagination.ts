@@ -1,6 +1,6 @@
 'use server';
 
-import { ValidType } from "@/interfaces";
+import { Type } from "@/interfaces";
 import prisma from "@/lib/prisma";
 import { Gender } from "@prisma/client";
 
@@ -56,7 +56,7 @@ export const getPaginatedProductsWithImages = async ({
             products: products.map(product => ({
                 ...product,
                 images: product.productImage.map(image => image.url),
-                type: product.category.name.toLowerCase() as ValidType,
+                type: product.category.name.toLowerCase() as Type,
             })),
         }
     } catch (error) {

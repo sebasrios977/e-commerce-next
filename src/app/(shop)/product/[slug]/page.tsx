@@ -2,9 +2,10 @@ export const revalidate = 604800; // 7 days
 
 import { Metadata, ResolvingMetadata } from "next";
 import { getProductBySlug } from "@/actions";
-import { StockLabel, ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector } from "@/components";
+import { StockLabel, ProductMobileSlideshow, ProductSlideshow } from "@/components";
 import { titleFont } from "@/config/fonts";
 import { notFound } from "next/navigation";
+import { AddToCart } from "./ui/AddToCart";
 
 
 export async function generateMetadata(
@@ -77,16 +78,7 @@ export default async function SlugPage({params}: Props) {
 
         <p className="text-lg mb-5">${ product.price }</p>
 
-        {/* Selector de tallas */}
-        <SizeSelector selectedSize={product.sizes[0]} availableSizes={product.sizes} />
-
-        {/* Selector de cantidad */}
-        <QuantitySelector quantity={ 2 } />
-
-        {/* Boton */}
-        <button className="btn-primary my-5">
-          Agregar al carrito
-        </button>
+        <AddToCart product={product} />
 
 
         {/* Descripcion */}
